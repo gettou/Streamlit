@@ -40,8 +40,9 @@ def render() -> None:
     # image = Image.open(example_image_fp)
     if user_image_fp is not None:
         image = Image.open(user_image_fp)
+        page_left.image(image)
 
-    page_left.image(image)
+    # page_left.image(image)
     if page_left.button("実行"):
         with st.spinner("実行中..."):
             # output = get_image_face_hided_by_emoji(image, emoji)
