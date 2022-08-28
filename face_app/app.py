@@ -14,7 +14,7 @@ def render() -> None:
     st.title("顔を絵文字で隠せるアプリ")
 
     # 画像アップロード
-    user_image_fp = st.file_uploader("画像を選択してください", type=["png", "jpg"])
+    user_image = st.file_uploader("画像を選択してください", type=['png', 'jpg', 'jpeg'])
 
     '''
     # サンプル画像選択
@@ -41,13 +41,14 @@ def render() -> None:
     page_right.subheader("実行結果")
 
     # image = Image.open(example_image_fp)
-    if user_image_fp is not None:
+    if user_image is not None:
+        st.markdown(f'{user_image.name} をアップロードしました.')
+        st.markdown(DIR_NAME)
         image = Image.open(user_image_fp)
         page_left.image(image)
 
     # page_left.image(image)
     if page_left.button("実行"):
-        print(DIR_NAME + 'data/')
         with st.spinner("実行中..."):
             # output = get_image_face_hided_by_emoji(image, emoji)
             output = image
