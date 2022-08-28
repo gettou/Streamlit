@@ -7,7 +7,8 @@ from io import BytesIO
 # from fes.face_annotate import get_image_face_hided_by_emoji
 # from fes.models import Emoji
 
-DIR_NAME = os.getcwd()
+# DIR_NAME = os.getcwd()
+DIR_NAME = '/app/streamlit/face_app/'
 
 
 def render() -> None:
