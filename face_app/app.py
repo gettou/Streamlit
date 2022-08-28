@@ -46,7 +46,7 @@ def render() -> None:
         img_path = os.path.join(DIR_NAME, 'data', user_image.name)
         # 画像を保存する
         with open(img_path, 'wb') as f:
-            f.write(img_path.read())
+            f.write(user_image.read())
         # st.markdown(f'{user_image.name} をアップロードしました.')
         # st.markdown(DIR_NAME + '/data/')
         image = Image.open(user_image)
