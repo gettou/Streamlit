@@ -42,16 +42,21 @@ def render() -> None:
 
     # image = Image.open(example_image_fp)
     if user_image is not None:
-        st.markdown(f'{user_image.name} をアップロードしました.')
-        st.markdown(DIR_NAME)
-        image = Image.open(user_image_fp)
+        img_path = os.path.join(DIR_NAME, 'data', user_image.name)
+        # 画像を保存する
+        with open(img_path, 'wb') as f:
+            f.write(img_path.read())
+        # st.markdown(f'{user_image.name} をアップロードしました.')
+        # st.markdown(DIR_NAME + '/data/')
+        image = Image.open(user_image)
         page_left.image(image)
 
     # page_left.image(image)
     if page_left.button("実行"):
         with st.spinner("実行中..."):
             # output = get_image_face_hided_by_emoji(image, emoji)
-            output = image
+            # output = image
+            output = Image.open(img_path)
         page_right.image(output)
 
         buf = BytesIO()
