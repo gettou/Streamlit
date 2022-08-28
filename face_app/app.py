@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from PIL import Image
 from io import BytesIO
@@ -5,6 +6,8 @@ from io import BytesIO
 # from fes.const import EXAMPLE_IMAGE_DIR
 # from fes.face_annotate import get_image_face_hided_by_emoji
 # from fes.models import Emoji
+
+DIR_NAME = os.getcwd()
 
 
 def render() -> None:
@@ -44,6 +47,7 @@ def render() -> None:
 
     # page_left.image(image)
     if page_left.button("実行"):
+        print(DIR_NAME + 'data/')
         with st.spinner("実行中..."):
             # output = get_image_face_hided_by_emoji(image, emoji)
             output = image
